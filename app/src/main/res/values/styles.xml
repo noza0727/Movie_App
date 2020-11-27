@@ -18,7 +18,7 @@
     <style name="review_star">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginTop">@dimen/dist_5dp</item>
     </style>
 
 </resources>

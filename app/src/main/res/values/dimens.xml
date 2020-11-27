@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_dist">16dp</dimen>
+    <dimen name="vertical_dist">56dp</dimen>
+    <dimen name="title_size">40sp</dimen>
+    <dimen name="dist_5dp">5dp</dimen>
+    <dimen name="short_story_size">14sp</dimen>
+    <dimen name="dist_8dp">8dp</dimen>
+    <dimen name="dist_12dp">12dp</dimen>
+</resources>

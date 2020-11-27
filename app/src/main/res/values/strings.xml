@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="back">Back</string>
-    <string name="movie_name_text">Avengers:   End Game</string>
+    <string name="movie_name_text">Avengers: End Game</string>
     <string name="age_limit">13+</string>
     <string name="genres">Action, Adventure, Fantasy</string>
     <string name="num_of_reviews">125</string>
