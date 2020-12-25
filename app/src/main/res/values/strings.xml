@@ -13,4 +13,7 @@
     <string name="person2_name">Chris  Evans</string>
     <string name="person4_name">Chris Hemsworth</string>
     <string name="person3_name">Mark Ruffalo</string>
+    <string name="movie_list">Movie List</string>
+    <string name="pg_age">13+</string>
+    <string name="movie_duration">137 MIN</string>
 </resources>
