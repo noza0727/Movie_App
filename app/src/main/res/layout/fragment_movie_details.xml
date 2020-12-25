@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    >
+    tools:context=".MovieDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,17 +34,19 @@
             app:layout_constraintGuide_end="@dimen/horizontal_dist" />
 
         <ImageView
-            android:id="@+id/background_image1"
+            android:id="@+id/preview_movie_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:contentDescription="Avengers image"
             android:scaleType="centerCrop"
-            android:src="@drawable/orig"
+            android:src="@drawable/avengers"
+            android:foreground="@drawable/foreground_darkener"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/genres"
+            />
 
         <ImageView
             android:id="@+id/back_img"
@@ -56,19 +58,21 @@
             app:layout_constraintTop_toBottomOf="@id/top_line" />
 
         <TextView
+            android:id="@+id/back_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
             android:textColor="@color/gray"
             app:layout_constraintStart_toEndOf="@id/back_img"
-            app:layout_constraintTop_toBottomOf="@id/top_line" />
+            app:layout_constraintTop_toTopOf="@id/back_img"
+            />
 
         <TextView
-            android:id="@+id/age_limit"
+            android:id="@+id/pg_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="154dp"
-            android:text="@string/age_limit"
+            android:layout_marginTop="@dimen/big_margin_in_details"
+            android:text="@string/pg_age"
             android:textColor="@color/whitish"
             app:layout_constraintStart_toStartOf="@id/start_line"
             app:layout_constraintTop_toBottomOf="@+id/back_img" />
@@ -84,14 +88,14 @@
             android:textSize="@dimen/title_size"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/start_line"
-            app:layout_constraintTop_toBottomOf="@+id/age_limit" />
+            app:layout_constraintTop_toBottomOf="@+id/pg_age" />
 
 
         <TextView
             android:id="@+id/genres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:paddingTop="4dp"
             android:text="@string/genres"
             android:textColor="@color/red"
             app:layout_constraintStart_toEndOf="@id/start_line"
@@ -101,41 +105,41 @@
             android:id="@+id/star1"
             style="@style/review_star"
             android:src="@drawable/star_off"
-            app:tint="@color/red"
             app:layout_constraintStart_toEndOf="@id/start_line"
-            app:layout_constraintTop_toBottomOf="@id/genres" />
+            app:layout_constraintTop_toBottomOf="@id/genres"
+            />
 
         <ImageView
             android:id="@+id/star2"
             style="@style/review_star"
             android:src="@drawable/star_off"
-            app:tint="@color/red"
             app:layout_constraintStart_toEndOf="@id/star1"
-            app:layout_constraintTop_toBottomOf="@id/genres" />
+            app:layout_constraintTop_toBottomOf="@id/genres"
+            />
 
         <ImageView
             android:id="@+id/star3"
             style="@style/review_star"
             android:src="@drawable/star_off"
-            app:tint="@color/red"
             app:layout_constraintStart_toEndOf="@id/star2"
-            app:layout_constraintTop_toBottomOf="@id/genres" />
+            app:layout_constraintTop_toBottomOf="@id/genres"
+            />
 
         <ImageView
             android:id="@+id/star4"
             style="@style/review_star"
             android:src="@drawable/star_off"
-            app:tint="@color/red"
             app:layout_constraintStart_toEndOf="@id/star3"
-            app:layout_constraintTop_toBottomOf="@id/genres" />
+            app:layout_constraintTop_toBottomOf="@id/genres"
+            />
 
         <ImageView
             android:id="@+id/star5"
             style="@style/review_star"
             android:src="@drawable/star_off"
-            app:tint="@color/gray"
             app:layout_constraintStart_toEndOf="@id/star4"
-            app:layout_constraintTop_toBottomOf="@id/genres" />
+            app:layout_constraintTop_toBottomOf="@id/genres"
+            />
 
         <TextView
             android:id="@+id/num_of_reviews"
@@ -170,7 +174,7 @@
             android:id="@+id/short_story"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dist_10dp"
             android:paddingTop="@dimen/dist_5dp"
             android:paddingBottom="@dimen/dist_5dp"
             android:text="@string/short_story"
@@ -189,103 +193,20 @@
             android:text="@string/cast"
             android:textColor="@color/whitish"
             app:layout_constraintStart_toEndOf="@id/start_line"
-            app:layout_constraintTop_toBottomOf="@+id/short_story" />
+            app:layout_constraintTop_toBottomOf="@+id/short_story"
+            />
 
-        <ImageView
-            android:id="@+id/person1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/horizontal_dist"
-            android:src="@drawable/person1"
-            app:layout_constraintDimensionRatio="1,1"
-            app:layout_constraintEnd_toStartOf="@id/person2"
-            app:layout_constraintStart_toStartOf="@id/start_line"
-            app:layout_constraintTop_toBottomOf="@+id/cast" />
 
-        <ImageView
-            android:id="@+id/person2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/dist_8dp"
-            android:layout_marginTop="@dimen/horizontal_dist"
-            android:src="@drawable/person2"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@id/person3"
-            app:layout_constraintStart_toEndOf="@id/person1"
-            app:layout_constraintTop_toBottomOf="@+id/cast" />
-
-        <ImageView
-            android:id="@+id/person3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/dist_8dp"
-            android:layout_marginTop="@dimen/horizontal_dist"
-            android:src="@drawable/person3"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@id/person4"
-            app:layout_constraintStart_toEndOf="@id/person2"
-            app:layout_constraintTop_toBottomOf="@+id/cast" />
-
-        <ImageView
-            android:id="@+id/person4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/dist_8dp"
-            android:layout_marginTop="@dimen/horizontal_dist"
-            android:src="@drawable/person4"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/end_line"
-            app:layout_constraintStart_toEndOf="@id/person3"
-            app:layout_constraintTop_toBottomOf="@+id/cast" />
-
-        <TextView
-            android:id="@+id/person1_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dist_8dp"
-            android:maxLines="2"
-            android:text="@string/person1_name"
-            android:textColor="@color/whitish"
-            app:layout_constraintEnd_toEndOf="@id/person1"
-            app:layout_constraintStart_toStartOf="@id/person1"
-            app:layout_constraintTop_toBottomOf="@+id/person1" />
-
-        <TextView
-            android:id="@+id/person2_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dist_8dp"
-            android:maxLines="2"
-            android:text="@string/person2_name"
-            android:textColor="@color/whitish"
-            app:layout_constraintEnd_toEndOf="@id/person2"
-            app:layout_constraintStart_toStartOf="@id/person2"
-            app:layout_constraintTop_toBottomOf="@+id/person2" />
-
-        <TextView
-            android:id="@+id/person3_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dist_8dp"
-            android:maxLines="2"
-            android:text="@string/person3_name"
-            android:textColor="@color/whitish"
-            app:layout_constraintEnd_toEndOf="@id/person3"
-            app:layout_constraintStart_toStartOf="@id/person3"
-            app:layout_constraintTop_toBottomOf="@+id/person3" />
-
-        <TextView
-            android:id="@+id/person4_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dist_8dp"
-            android:maxLines="2"
-            android:text="@string/person4_name"
-            android:textColor="@color/whitish"
-            app:layout_constraintEnd_toEndOf="@id/person4"
-            app:layout_constraintStart_toStartOf="@id/person4"
-            app:layout_constraintTop_toBottomOf="@+id/person4" />
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/actors_recycler_view"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@id/cast"
+           app:layout_constraintStart_toStartOf="@id/start_line"
+           app:layout_constraintEnd_toEndOf="@id/end_line"
+           android:layout_marginTop="6dp"
+           android:orientation="horizontal"
+           tools:listitem="@layout/view_holder_actor"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

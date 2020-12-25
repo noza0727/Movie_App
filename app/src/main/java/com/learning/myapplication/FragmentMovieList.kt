@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
+import com.learning.myapplication.data.MovieData
 
 class FragmentMovieList : Fragment() {
 
     private var clickListener: ClickListener? = null
+    private var moviesListRecycler: RecyclerView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,13 +26,25 @@ class FragmentMovieList : Fragment() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        view?.findViewById<View>(R.id.movie_card_layout)?. setOnClickListener{
-                clickListener?.onMovieDetailsClick()
+        moviesListRecycler = view.findViewById(R.id.recycler_movie_list)
+        val movies = MovieData.generateMovies()
+        val adapter = MovieAdapter(requireContext(), movies, onMovieData)
+        val layout = GridLayoutManager(requireContext(), resources.getInteger(R.integer.grid_column_count), GridLayoutManager.VERTICAL,false )
+        layout.spanSizeLookup = object: GridLayoutManager.SpanSizeLookup(){
+            override fun getSpanSize(position: Int): Int {
+                return if (adapter.isHeader(position)) layout.spanCount else 1
             }
+        }
+
+        moviesListRecycler?.layoutManager = layout
+        moviesListRecycler?.adapter = adapter
+
     }
+
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -42,11 +58,21 @@ class FragmentMovieList : Fragment() {
         clickListener = null
     }
 
+    private val onMovieData = object : MovieAdapter.OnMovieClicked{
+        override fun onMovieClick(movie: Movies) {
+            moviesListRecycler?.let{
+                clickListener?.onMovieDetailsClick(movie)
+            }
+
+        }
+
+    }
+
     companion object{
         fun newInstance() = FragmentMovieList()
     }
 
     interface ClickListener {
-        fun onMovieDetailsClick()
+        fun onMovieDetailsClick(movie: Movies)
     }
 }
