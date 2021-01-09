@@ -7,12 +7,4 @@
     <dimen name="short_story_size">14sp</dimen>
     <dimen name="dist_8dp">8dp</dimen>
     <dimen name="dist_12dp">12dp</dimen>
-    <dimen name="dist_27dp">27dp</dimen>
-    <dimen name="movie_card_height">296dp</dimen>
-    <dimen name="movie_card_width">170dp</dimen>
-    <dimen name="text_size_8sp">8sp</dimen>
-    <dimen name="dist_10dp">10dp</dimen>
-    <dimen name="dist_2dp">2dp</dimen>
-    <dimen name="movie_title_card">14sp</dimen>
-    <dimen name="card_corner_radius">6dp</dimen>
 </resources>
