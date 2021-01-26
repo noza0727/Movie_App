@@ -1,18 +1,21 @@
 package com.learning.myapplication
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.learning.myapplication.data.Movie
+import com.learning.myapplication.utils.loadImage
 import com.learning.myapplication.utils.setRating
-import org.w3c.dom.Text
 
-class MovieAdapter(context: Context, var movies: List<Movies>, val onMovieClick: OnMovieClicked): RecyclerView.Adapter<ViewHolderInUse>() {
-
+class MovieAdapter(
+    context: Context,
+    var movies: List<Movie>,
+    private val onMovieClick: OnMovieClicked
+): RecyclerView.Adapter<ViewHolderInUse>() {
     fun isHeader(position: Int) = position == 0
     private var inflater = LayoutInflater.from(context)
 
@@ -29,14 +32,14 @@ class MovieAdapter(context: Context, var movies: List<Movies>, val onMovieClick:
             is HeaderHolder -> holder.bind()
             is MoviesHolder -> {
                 holder.bind(getItem(position))
-                holder.itemView.setOnClickListener{
+                holder.itemView.setOnClickListener {
                     onMovieClick.onMovieClick(getItem(position))
                 }
             }
         }
     }
 
-    private fun getItem(position: Int): Movies = movies[position-1]
+    private fun getItem(position: Int): Movie = movies[position - 1]
 
     override fun getItemCount(): Int = movies.size + 1
 
@@ -53,16 +56,15 @@ class MovieAdapter(context: Context, var movies: List<Movies>, val onMovieClick:
     }
     
     interface OnMovieClicked{
-        fun onMovieClick(movie: Movies)
+        fun onMovieClick(movie: Movie)
     }
-
 }
- abstract class ViewHolderInUse (itemView: View): RecyclerView.ViewHolder(itemView)
 
+abstract class ViewHolderInUse(itemView: View): RecyclerView.ViewHolder(itemView)
 
 class HeaderHolder(itemView: View) : ViewHolderInUse(itemView){
-    val headerImage: ImageView = itemView.findViewById(R.id.target_img)
-    val headerText: TextView = itemView.findViewById(R.id.movie_list_header_text)
+    private val headerImage: ImageView = itemView.findViewById(R.id.target_img)
+    private val headerText: TextView = itemView.findViewById(R.id.movie_list_header_text)
 
     fun bind(){
         headerImage.setImageResource(R.drawable.target_blur)
@@ -71,22 +73,22 @@ class HeaderHolder(itemView: View) : ViewHolderInUse(itemView){
 }
 
 class MoviesHolder(itemView: View) : ViewHolderInUse(itemView){
+    val mContext: Context = itemView.context
     private val previewImage: ImageView = itemView.findViewById(R.id.preview_movie_image)
-    val pgAge = itemView.findViewById<TextView>(R.id.pg_age)
-    val genre =itemView.findViewById<TextView>(R.id.genres)
-    val reviewNumber = itemView.findViewById<TextView>(R.id.num_of_reviews)
-    val movieTitle = itemView.findViewById<TextView>(R.id.movie_title)
-    val duration = itemView.findViewById<TextView>(R.id.movie_duration)
+    private val pgAge: TextView = itemView.findViewById(R.id.pg_age)
+    private val genre: TextView =itemView.findViewById(R.id.genres)
+    private val reviewNumber: TextView = itemView.findViewById(R.id.num_of_reviews)
+    private val movieTitle: TextView = itemView.findViewById(R.id.movie_title)
+    private val duration: TextView = itemView.findViewById(R.id.movie_duration)
 
-
-    fun bind(movie: Movies){
-        previewImage.setImageResource(movie.previewImage)
-        pgAge.text = movie.pg_age
-        genre.text = movie.genre
-        reviewNumber.text = movie.reviews
+    fun bind(movie: Movie){
+        movieTitle.isSelected = true
+        pgAge.text =  mContext.getString(R.string.age_limit, movie.minimumAge)
+        genre.text = movie.genres.joinToString { it.name }
+        reviewNumber.text = movie.numberOfRatings.toString()
         movieTitle.text = movie.title
-        duration.text = movie.duration
-        setRating(itemView, movie.rating)
+        duration.text = movie.runtime.toString()
+        loadImage(previewImage, movie.poster)
+        setRating(itemView, movie.ratings)
     }
-
 }

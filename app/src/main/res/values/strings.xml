@@ -2,7 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="back">Back</string>
     <string name="movie_name_text">Avengers: End Game</string>
-    <string name="age_limit">13+</string>
+    <string name="age_limit">%1$d+</string>
     <string name="genres">Action, Adventure, Fantasy</string>
     <string name="num_of_reviews">125</string>
     <string name="reviews">REVIEWS</string>
@@ -14,6 +14,7 @@
     <string name="person4_name">Chris Hemsworth</string>
     <string name="person3_name">Mark Ruffalo</string>
     <string name="movie_list">Movie List</string>
-    <string name="pg_age">13+</string>
-    <string name="movie_duration">137 MIN</string>
+    <string name="movie_duration">137</string>
+    <string name="min">MIN</string>
+    <string name="no_cast">Cast not available</string>
 </resources>

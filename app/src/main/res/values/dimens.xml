@@ -2,7 +2,7 @@
 <resources>
     <dimen name="horizontal_dist">16dp</dimen>
     <dimen name="vertical_dist">56dp</dimen>
-    <dimen name="title_size">40sp</dimen>
+    <dimen name="title_size">35sp</dimen>
     <dimen name="dist_5dp">5dp</dimen>
     <dimen name="short_story_size">14sp</dimen>
     <dimen name="dist_8dp">8dp</dimen>

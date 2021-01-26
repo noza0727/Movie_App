@@ -16,8 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="@dimen/vertical_dist"
         android:layout_marginStart="@dimen/horizontal_dist"
-        android:layout_marginBottom="@dimen/bottom_margin_header"
-        />
+        android:layout_marginBottom="@dimen/bottom_margin_header" />
 
     <TextView
         android:id="@+id/movie_list_header_text"
@@ -31,6 +30,4 @@
         app:layout_constraintBottom_toBottomOf="@id/target_img"
         app:layout_constraintStart_toEndOf="@+id/target_img"
         app:layout_constraintTop_toTopOf="@id/target_img"/>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

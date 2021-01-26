@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".MovieDetailsActivity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -45,8 +43,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/genres"
-            />
+            app:layout_constraintBottom_toTopOf="@id/genres" />
 
         <ImageView
             android:id="@+id/back_img"
@@ -64,15 +61,14 @@
             android:text="@string/back"
             android:textColor="@color/gray"
             app:layout_constraintStart_toEndOf="@id/back_img"
-            app:layout_constraintTop_toTopOf="@id/back_img"
-            />
+            app:layout_constraintTop_toTopOf="@id/back_img" />
 
         <TextView
             android:id="@+id/pg_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/big_margin_in_details"
-            android:text="@string/pg_age"
+            android:text="@string/age_limit"
             android:textColor="@color/whitish"
             app:layout_constraintStart_toStartOf="@id/start_line"
             app:layout_constraintTop_toBottomOf="@+id/back_img" />
@@ -82,7 +78,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dist_12dp"
-            android:maxLines="2"
             android:text="@string/movie_name_text"
             android:textColor="@color/whitish"
             android:textSize="@dimen/title_size"
@@ -90,14 +85,15 @@
             app:layout_constraintStart_toEndOf="@id/start_line"
             app:layout_constraintTop_toBottomOf="@+id/pg_age" />
 
-
         <TextView
             android:id="@+id/genres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
+            android:layout_marginEnd="@dimen/dist_8dp"
             android:text="@string/genres"
             android:textColor="@color/red"
+            android:maxLines="2"
             app:layout_constraintStart_toEndOf="@id/start_line"
             app:layout_constraintTop_toBottomOf="@+id/movie_title" />
 
@@ -106,40 +102,35 @@
             style="@style/review_star"
             android:src="@drawable/star_off"
             app:layout_constraintStart_toEndOf="@id/start_line"
-            app:layout_constraintTop_toBottomOf="@id/genres"
-            />
+            app:layout_constraintTop_toBottomOf="@id/genres" />
 
         <ImageView
             android:id="@+id/star2"
             style="@style/review_star"
             android:src="@drawable/star_off"
             app:layout_constraintStart_toEndOf="@id/star1"
-            app:layout_constraintTop_toBottomOf="@id/genres"
-            />
+            app:layout_constraintTop_toBottomOf="@id/genres" />
 
         <ImageView
             android:id="@+id/star3"
             style="@style/review_star"
             android:src="@drawable/star_off"
             app:layout_constraintStart_toEndOf="@id/star2"
-            app:layout_constraintTop_toBottomOf="@id/genres"
-            />
+            app:layout_constraintTop_toBottomOf="@id/genres" />
 
         <ImageView
             android:id="@+id/star4"
             style="@style/review_star"
             android:src="@drawable/star_off"
             app:layout_constraintStart_toEndOf="@id/star3"
-            app:layout_constraintTop_toBottomOf="@id/genres"
-            />
+            app:layout_constraintTop_toBottomOf="@id/genres" />
 
         <ImageView
             android:id="@+id/star5"
             style="@style/review_star"
             android:src="@drawable/star_off"
             app:layout_constraintStart_toEndOf="@id/star4"
-            app:layout_constraintTop_toBottomOf="@id/genres"
-            />
+            app:layout_constraintTop_toBottomOf="@id/genres" />
 
         <TextView
             android:id="@+id/num_of_reviews"
@@ -184,7 +175,6 @@
             app:layout_constraintStart_toEndOf="@id/start_line"
             app:layout_constraintTop_toBottomOf="@id/storyline" />
 
-
         <TextView
             android:id="@+id/cast"
             android:layout_width="wrap_content"
@@ -196,7 +186,6 @@
             app:layout_constraintTop_toBottomOf="@+id/short_story"
             />
 
-
        <androidx.recyclerview.widget.RecyclerView
            android:id="@+id/actors_recycler_view"
            android:layout_width="0dp"
@@ -207,6 +196,5 @@
            android:layout_marginTop="6dp"
            android:orientation="horizontal"
            tools:listitem="@layout/view_holder_actor"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
