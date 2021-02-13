@@ -1,36 +1,45 @@
 package com.learning.myapplication
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.learning.myapplication.data.Actor
+import com.learning.myapplication.databinding.ViewHolderActorBinding
 import com.learning.myapplication.utils.loadImage
 
-class ActorsAdapter(context: Context, var actors: List<Actor>): RecyclerView.Adapter<ActorHolder>() {
-    private var inflater = LayoutInflater.from(context)
+class ActorsAdapter(): ListAdapter<Actor, ActorsAdapter.ActorHolder>(ActorDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActorHolder {
-        return ActorHolder(inflater.inflate(R.layout.view_holder_actor, parent, false))
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ViewHolderActorBinding.inflate(inflater, parent, false)
+        return ActorHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ActorHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    private fun getItem(position: Int): Actor = actors[position]
-    override fun getItemCount(): Int = actors.size
-}
+    class ActorHolder(private val binding: ViewHolderActorBinding) : RecyclerView.ViewHolder(binding.root) {
 
-class ActorHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-    private val picture: ImageView = itemView.findViewById(R.id.actor_image)
-    private val name: TextView = itemView.findViewById(R.id.actor_name)
+        fun bind(actors: Actor) {
+            binding.apply{
+                actorName.text = actors.name
+                loadImage(actorImage, actors.picture)
+            }
+        }
+    }
 
-    fun bind(actors: Actor){
-        name.text = actors.name
-        loadImage(picture, actors.picture)
+    object ActorDiffUtil : DiffUtil.ItemCallback<Actor>() {
+        override fun areItemsTheSame(oldItem: Actor, newItem: Actor): Boolean =
+            oldItem.name == newItem.name
+
+        override fun areContentsTheSame(oldItem: Actor, newItem: Actor): Boolean =
+            oldItem == newItem
     }
 }
+
+
+
+

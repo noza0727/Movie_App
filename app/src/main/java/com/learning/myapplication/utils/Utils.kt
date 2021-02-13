@@ -6,7 +6,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.learning.myapplication.MoviesActivity
 import com.learning.myapplication.R
+import com.learning.myapplication.data.Movie
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import kotlin.math.ceil
 
 
@@ -73,3 +79,15 @@ fun loadImage(view: ImageView, image: String){
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(view)
 }
+
+/*object Coroutines{
+    fun <T: Any> ioToMain(work: suspend(() -> T?), callback: ((T?) -> List<Movie>))=
+        CoroutineScope(Dispatchers.Main).launch {
+            val data = CoroutineScope(Dispatchers.IO).async  root@{
+                return@root work()
+            }.await()
+            callback(data)
+        }
+}*/
+
+
