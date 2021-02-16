@@ -2,9 +2,22 @@
 <resources>
     <dimen name="horizontal_dist">16dp</dimen>
     <dimen name="vertical_dist">56dp</dimen>
-    <dimen name="title_size">40sp</dimen>
+    <dimen name="title_size">35sp</dimen>
     <dimen name="dist_5dp">5dp</dimen>
     <dimen name="short_story_size">14sp</dimen>
     <dimen name="dist_8dp">8dp</dimen>
     <dimen name="dist_12dp">12dp</dimen>
+    <dimen name="dist_27dp">27dp</dimen>
+    <dimen name="movie_card_height">296dp</dimen>
+    <dimen name="movie_card_width">170dp</dimen>
+    <dimen name="text_size_8sp">8sp</dimen>
+    <dimen name="text_size_25sp">25sp</dimen>
+    <dimen name="pg_age_text">12sp</dimen>
+    <dimen name="dist_10dp">10dp</dimen>
+    <dimen name="dist_2dp">2dp</dimen>
+    <dimen name="card_corner_radius">6dp</dimen>
+    <dimen name="big_margin_in_details">154dp</dimen>
+    <dimen name="actor_pic_size">90dp</dimen>
+    <dimen name="bottom_margin_header">20dp</dimen>
+    <dimen name="bottom_margin_for_title_list">45dp</dimen>
 </resources>
